@@ -2,15 +2,19 @@ from kafka import KafkaConsumer
 import json
 
 def consume_messages():
-    consumer = KafkaConsumer('test_topic',
-                             bootstrap_servers='localhost:9092',
-                             auto_offset_reset='earliest',
-                             enable_auto_commit=True,
-                             group_id='my-group',
-                             value_serializer=lambda v: json.loads(v.decode('utf-8')))
-    
-    for message in consumer:
-        print(f'Received: {message.value}')
+    # Initialize Kafka consumer without the 'value_serializer' config
+    consumer = KafkaConsumer(
+        'test_topic',
+        bootstrap_servers='localhost:9092',
+        group_id='my-group',
+        auto_offset_reset='earliest'
+    )
 
-if __name__ == '__main__':
+    # Consume messages from the topic
+    for message in consumer:
+        # Deserialize the message value manually
+        value = json.loads(message.value.decode('utf-8'))
+        print(f"Received message: {value}")
+
+if __name__ == "__main__":
     consume_messages()
