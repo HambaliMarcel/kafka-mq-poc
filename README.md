@@ -10,8 +10,11 @@ This project is a proof of concept (PoC) demonstrating the use of Apache Kafka a
 kafka-mq-poc/
 ├── producer/
 │   ├── producer.py
+│   ├── config.yaml
 ├── consumer/
 │   ├── consumer.py
+│   ├── database.py
+│   ├── config.yaml
 ├── docker-compose.yml
 ├── requirements.txt
 ├── README.md
