@@ -1,6 +1,6 @@
 kafka:
-  bootstrap_servers: 'localhost:9092'
-  topic: 'test_topic'
-  group_id: 'my-group'
+  bootstrap_servers: "localhost:9092"
+  topic: "test_topic"
+  group_id: "my-group"
 database:
-  path: 'consumer/messages.db'
+  path: "messages.db"
